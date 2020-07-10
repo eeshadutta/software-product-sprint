@@ -1,9 +1,31 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+body {
+    background-image: url(images/bg1.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100%;
 }
 
-#greeting-container {
-  margin-top: 20px;
+.name {
+    font-family: "Over the Rainbow";
+    font-size: 10vw;
+    position: absolute;
+    top: 35vw;
+    color: black;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.quote {
+    font-family: "Julius Sans One";
+    font-size: 3vw;
+    font-weight: bold;
+    position: absolute;
+    top: 15vw;
+    left: 15vw;
+    color: black;
+    display: block;
+    width: 70%;
+    text-align: center;
 }
