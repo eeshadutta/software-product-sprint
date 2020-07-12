@@ -7,6 +7,8 @@
     <link href='https://fonts.googleapis.com/css?family=Over%20the%20Rainbow' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Cedarville%20Cursive' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Didact%20Gothic' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +18,108 @@
 </head>
 
 <body>
-    <div class="quote"></div>
-    <div class="name">Eesha Dutta</div>
+    <div class="back1">
+        <div class="quote"></div>
+        <div class="name">Eesha Dutta</div>
+
+        <table class="firsttable intro">
+            <tr>
+                <!-- <td style="width: 10%;"><img class="img-circle" src="images/profile.jpg" alt="profile"></td> -->
+                <td style="width: 8%;">
+                    <h1 class="hi">Hey there!</h1>
+                </td>
+                <td style="width: 18%;">
+                    <p class="overview">I am currently pursuing Computer Science from IIIT Hyderabad. I did my Schooling from St. Joseph High School, Pune and my Senior Secondary from Suryadatta Junior College. I am very passionate about everything that I pick up and I have
+                        a die-hard attitude to get it done. I love to take up new challenges and learn new things. I believe that hard work and persistence are the key to success. I want to be part of a team solving problems using cutting edge tools and
+                        technology. I am currently pursuing Research in NLP while also focusing on Software Development and Competitive Programming.</p>
+                    <p class="overview">Outside of work, I love to read and dance. I am a huge Potterhead - you can ask me anything about the Potter world. I have learnt Kathak dance for 10 years and I have also learnt a few other dance forms. I also love to watch TV shows
+                        and movies. Look around to know more about me!
+                    </p>
+                </td>
+            </tr>
+            <!-- <tr>
+                <td style="width: 8%;"></td>
+                <td>
+                    <form action="interests.html" method="get">
+                        <button class="about-button">More About My Interests</button>
+                    </form>
+                </td>
+            </tr> -->
+        </table>
+    </div>
+
+    <div class="back2">
+        <div class="topic">My Progression</div>
+
+        <div class="skills">
+            <h1>SKILLS</h1>
+            <ul class="skills-list">
+                <li><b>Programming Languages</b>:<br> C, C++, Python, Java, JavaScript, GoLang</li>
+                <li><b>Web Development</b>:<br> HTML, CSS, Flask, Django, ReactJS, JQuery</li>
+                <li><b>Systems</b>:<br> Operating Systems, Database Systems, Computer Networks</li>
+                <li><b>Others</b>:<br> Git, SQL, WebGL, OpenGL, MATLAB</li>
+            </ul>
+        </div>
+
+        <div class="experience">
+            <h1>EXPERIENCE</h1>
+            <ul class="experience-list">
+                <li><b>Research Undergraduate at KCIS, IIIT (May 2019-Present)</b><br>Pursuing research in Natural Language Processing under Prof Manish Srivastava.
+                    <ul>
+                        <li>Working on "Code Mixed Analysis of Social Media Texts" to analyse texts which contain more than one language</li>
+                        <li>Creation of datasets by scraping various websites</li>
+                        <li>Exploratory Data Analytics to Analyse the data and results</li>
+                    </ul>
+                </li>
+                <li><b>Teaching Assistant at IIIT (Jan-May 2020)</b><br>TA for Design and Analysis of Software Systems course. Responsibilities include mentoring teams of students building Software Systems, conducting tutorials, preparing and evaluating assignments
+                    and exams.</li>
+                <li><b>Software Development at Theodore Software Pvt Ltd (Aug-Nov 2018)</b><br>Contributed as part of Software Systems course to create a Web System for Handwritten Document Recognition using Django framework and CNN, RNN models for Computer
+                    Vision.
+                </li>
+            </ul>
+        </div>
+
+        <div class="projects">
+            <h1>PROJECTS</h1>
+            <ul class="projects-list">
+                <li><b>Smart Traffic Analysis</b>
+                    <a href="https://github.com/eeshadutta/Smart-Traffic-Analysis" target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>A unified platform to detect traffic violations like overspeeding, breaking traffic lights, accidents from a CCTV feed. Built using ReactJS, Django and OpenCV.</li>
+                <li><b>Quiz App</b>
+                    <a href="https://github.com/eeshadutta/Quiz-App" target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>Interactive Quiz App with multiple genres and types of questions, leaderboard feature and admin dashboard. Built in ReactJS and GoLang.</li>
+                <li><b>Community Question Answering</b>
+                    <a href="https://github.com/Paryul10/Community-Question_Answering" , target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>Implemented various ML models for Question Pair Similarity. Applied Siamese Networks along with various classification techniques.</li>
+                <li><b>Tic Tac Toe bot</b>
+                    <a href="https://github.com/eeshadutta/Extreme-Tic-Tac-Toe" target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>An AI bot which can play Extreme Tic Tac Toe which consists of two 9X9 boards. Used Minimax Algorithm with Iterative Deepening Search and Alpha Beta Pruning.</li>
+                <li><b>C Shell</b>
+                    <a href="https://github.com/eeshadutta/CShell" target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>Linux Shell built in C language from scratch. Implemented commands like ls, cd, pwd, pinfo, fg, bg, overkill, as well as features like background, foreground processes,
+                    IO redirection, signalling.</li>
+                <li><b>SQL Engine</b>
+                    <a href="https://github.com/eeshadutta/SQL-Engine" target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>Implemented a mini SQL engine in python to implement SQL queries like select, project, aggregate, join using Command Line Interface.</li>
+                <li><b>Proxy Server</b>
+                    <a href="https://github.com/eeshadutta/Proxy-Server" target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>HTTP Proxy Server which can handle multiple clients and servers, GET and POST requests, Blacklisting, Caching, Authentication of Users.</li>
+                <li><b>Subway Surfers</b>
+                    <a href="https://github.com/eeshadutta/Subway-Surfers" target="_blank"><img src="images/link.png" alt="link" class="link-img"></a><br>Subway Surfers clone built using WebGL implementing all functionalities of the original game.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <ul class="social">
+            <li class="social-list">
+                <a href="https://www.linkedin.com/in/eesha-dutta/" target="_blank" class="fa fa-linkedin"></a>
+            </li>
+            <li class="social-list">
+                <a href="https://github.com/eeshadutta" target="_blank" class="fa fa-github"></a>
+            </li>
+            <li class="social-list">
+                <a href="https://www.facebook.com/eesha.dutta.99" target="_blank" class="fa fa-facebook"></a>
+            </li>
+        </ul>
+
+        <p class="created">By Eesha Dutta</p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 

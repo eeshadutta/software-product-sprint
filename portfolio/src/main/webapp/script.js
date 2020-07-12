@@ -5,12 +5,22 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 async function randomQuote(idx) {
-    document.getElementsByClassName("quote")[0].innerHTML = quotes[idx];
-    console.log(quotes[idx]);
-    await sleep(4000);
+    elem = document.getElementsByClassName("quote")[0];
+    elem.innerHTML = quotes[idx];
+    elem.animate([
+        { opacity: 0 },
+        { opacity: 0.9 },
+        { opacity: 1 },
+        { opacity: 0.9 },
+        { opacity: 0 },
+    ], {
+        duration: 6000,
+        easing: "ease-in-out",
+    })
+    await sleep(6000);
     randomQuote((idx + 1) % n);
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function(event) {
     randomQuote(0);
 });
