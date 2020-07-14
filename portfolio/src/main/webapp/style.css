@@ -10,7 +10,8 @@ h1 {
 }
 
 .back1,
-.back2 {
+.back2,
+.back3 {
     position: relative;
     background-attachment: fixed;
     background-position: center;
@@ -26,7 +27,12 @@ h1 {
 .back2 {
     /* background-image: url("images/bg3.jpg"); */
     background-color: rgb(177, 209, 218);
-    min-height: 100vw;
+    min-height: 102vw;
+}
+
+.back3 {
+    background-image: url("images/bg3.jpg");
+    min-height: 80vw;
 }
 
 .quote {
@@ -51,8 +57,6 @@ h1 {
     color: black;
     width: 100%;
     text-align: center;
-    /* background-color: white;
-    opacity: 0.8; */
 }
 
 .intro {
@@ -63,8 +67,8 @@ h1 {
     background-image: linear-gradient(rgb(167, 125, 132), rgb(56, 133, 163));
     background-size: 100%;
     width: 100%;
-    padding-left: 12%;
-    padding-right: 15%;
+    padding-left: 5vw;
+    padding-right: 5vw;
     z-index: 5;
 }
 
@@ -104,18 +108,16 @@ h1 {
     cursor: pointer;
 }
 
-.topic {
+.work {
     font-family: "Julius Sans One";
     font-size: 5vw;
     font-weight: bold;
-    /* color: white; */
     /* background-color: black; */
     color: black;
     text-align: center;
     width: 100%;
     position: absolute;
     top: 18vw;
-    /* opacity: 0.8; */
 }
 
 .skills,
@@ -125,6 +127,14 @@ h1 {
     font-family: "Didact Gothic";
     background-color: black;
     color: white;
+}
+
+.skills h1,
+.projects h1,
+.experience h1 {
+    font-family: "Julius Sans One";
+    font-size: 2vw;
+    text-align: center;
 }
 
 .skills {
@@ -162,10 +172,128 @@ h1 {
     width: 1.6vw;
 }
 
-.footer {
+.interests {
+    font-family: "Julius Sans One";
+    font-size: 5vw;
+    font-weight: bold;
+    background-color: rgb(97, 80, 116);
+    color: black;
+    text-align: center;
     width: 100%;
     position: absolute;
-    top: 170vw;
+    top: 10vw;
+    opacity: 0.8;
+    padding-top: 0.8vw;
+    padding-bottom: 0.8vw;
+}
+
+.dancing,
+.reading,
+.painting,
+.music,
+.movies,
+.travel {
+    position: absolute;
+    width: 32vw;
+    height: 25vw;
+}
+
+.dancing {
+    top: 22vw;
+    left: 2vw;
+}
+
+.reading {
+    top: 22vw;
+    left: 34vw;
+}
+
+.painting {
+    top: 22vw;
+    left: 66vw;
+}
+
+.music {
+    top: 48vw;
+    left: 2vw;
+}
+
+.movies {
+    top: 48vw;
+    left: 34vw;
+}
+
+.travel {
+    top: 48vw;
+    left: 66vw;
+}
+
+.photo {
+    width: 30vw;
+    height: 22vw;
+    padding-top: 2vw 1vw 1vw 1vw;
+    margin-left: 1vw;
+}
+
+.dance-overlay,
+.read-overlay,
+.paint-overlay,
+.music-overlay,
+.movies-overlay,
+.travel-overlay {
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    width: 30vw;
+    height: 22vw;
+    margin-left: 1vw;
+    opacity: 0;
+    background-color: black;
+    color: white;
+    transition: 500ms ease;
+}
+
+.desc h1 {
+    font-family: "Julius Sans One";
+    font-size: 2vw;
+    text-align: center;
+}
+
+.desc p {
+    font-family: "Didact Gothic";
+    font-size: 1vw;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
+    text-align: justify;
+}
+
+.dancing:hover .dance-overlay {
+    opacity: 0.8;
+}
+
+.reading:hover .read-overlay {
+    opacity: 0.8;
+}
+
+.painting:hover .paint-overlay {
+    opacity: 0.8;
+}
+
+.music:hover .music-overlay {
+    opacity: 0.8;
+}
+
+.movies:hover .movies-overlay {
+    opacity: 0.8;
+}
+
+.travel:hover .travel-overlay {
+    opacity: 0.8;
+}
+
+.footer {
+    width: 100%;
+    position: relative;
     color: black;
 }
 
@@ -217,10 +345,5 @@ h1 {
 
 .fa-linkedin {
     background: #007BB5;
-    color: white;
-}
-
-.fa-google {
-    background: #dd4b39;
     color: white;
 }
