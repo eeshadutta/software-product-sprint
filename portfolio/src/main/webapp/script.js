@@ -4,6 +4,7 @@ var n = quotes.length;
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
 async function randomQuote(idx) {
     elem = document.getElementsByClassName("quote")[0];
     elem.innerHTML = quotes[idx];
@@ -21,6 +22,27 @@ async function randomQuote(idx) {
     randomQuote((idx + 1) % n);
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-    randomQuote(0);
-});
+function getComments() {
+    fetch('/data').then(response => response.json()).then((commentsReceived) => {
+        console.log(commentsReceived);
+        commentListElement = document.getElementsByClassName('comments-list')[0];
+        commentListElement.innerHTML = '';
+
+        comments_list = commentsReceived.comments;
+        num_comments = comments_list.length;
+
+        for (i = 0; i < num_comments; i++)
+        {
+            commentListElement.appendChild(createListElement(comments_list[i].user + ": " + comments_list[i].comment));
+        }
+    });
+}
+
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
+}
+
+window.onload = randomQuote(0);
+window.onload = getComments();
