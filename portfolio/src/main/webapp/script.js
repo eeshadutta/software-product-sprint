@@ -24,24 +24,31 @@ async function randomQuote(idx) {
 
 function getComments() {
     fetch('/data').then(response => response.json()).then((commentsReceived) => {
-        console.log(commentsReceived);
-        commentListElement = document.getElementsByClassName('comments-list')[0];
-        commentListElement.innerHTML = '';
+        commentListElement = document.getElementById("all-comments");
+        commentListElement.innerText = '';
 
         comments_list = commentsReceived.comments;
         num_comments = comments_list.length;
 
         for (i = 0; i < num_comments; i++)
         {
-            commentListElement.appendChild(createListElement(comments_list[i].user + ": " + comments_list[i].comment));
+            const commentDiv = document.createElement('div');
+            commentDiv.className = "comments-list";
+            commentDiv.appendChild(createDomElement('div', "date", comments_list[i].datetime));
+            commentDiv.appendChild(createDomElement('div', "comment", comments_list[i].comment));
+            commentDiv.appendChild(createDomElement('div', "user", comments_list[i].user));
+
+            commentListElement.appendChild(commentDiv);
         }
     });
 }
 
-function createListElement(text) {
-  const liElement = document.createElement('li');
-  liElement.innerText = text;
-  return liElement;
+function createDomElement(typeOfElement, class_name, text) {
+    const element = document.createElement(typeOfElement);
+    element.className = class_name;
+    element.innerText = text;
+
+    return element;
 }
 
 window.onload = randomQuote(0);

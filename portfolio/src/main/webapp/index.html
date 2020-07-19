@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eesha Dutta</title>
+    <link rel="icon" href="images/logo.jpeg" type="image/icon type">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -204,10 +205,18 @@
             </li>
         </ul>
 
-        <p class="created">By Eesha Dutta</p>
+        <p class="created">Eesha Dutta 2020</p>
 
         <div class="comments">
-            <ul class="comments-list"></ul>
+            <form action="/data" method="POST" class="comment-form">
+                <div>
+                    <input type="text" name="username" placeholder="Name" class="name-field"><br>
+                    <textarea name="input-comment" placeholder="Comment" rows="2" class="comment-field"></textarea>
+                    <input type="submit" class="submit-button" value="Post">
+                </div>
+            </form>
+
+            <div id="all-comments"></div>
         </div>
     </div>
 
