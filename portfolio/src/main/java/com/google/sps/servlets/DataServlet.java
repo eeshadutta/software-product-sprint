@@ -21,6 +21,9 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
+
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -66,20 +69,24 @@ public class DataServlet extends HttpServlet {
     private String convertToJson(ArrayList<String> users, ArrayList<String> comments, ArrayList<String> datetimes) {
         String json = "{";
         json += "\"comments\": [";
-        for (int i = 0; i < comments.size(); i++) {
-            json += "{";
-            json += "\"user\": ";
-            json += "\"" + users.get(i) + "\"";
-            json += ", ";
-            json += "\"comment\": ";
-            json += "\"" + comments.get(i) + "\"";
-            json += ", ";
-            json += "\"datetime\": ";
-            json += "\"" + datetimes.get(i) + "\"";
-            if (i == comments.size() - 1)
-                json += "}";
-            else
-                json += "}, ";
+
+        UserService userService = UserServiceFactory.getUserService();
+        if (userService.isUserLoggedIn()) {
+            for (int i = 0; i < comments.size(); i++) {
+                json += "{";
+                json += "\"user\": ";
+                json += "\"" + users.get(i) + "\"";
+                json += ", ";
+                json += "\"comment\": ";
+                json += "\"" + comments.get(i) + "\"";
+                json += ", ";
+                json += "\"datetime\": ";
+                json += "\"" + datetimes.get(i) + "\"";
+                if (i == comments.size() - 1)
+                    json += "}";
+                else
+                    json += "}, ";
+            }
         }
 
         json += "]}";
@@ -88,7 +95,9 @@ public class DataServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String user = request.getParameter("username");
+        UserService userService = UserServiceFactory.getUserService();
+        
+        String user = userService.getCurrentUser().getEmail();
         String comment = request.getParameter("input-comment");
         long timestamp = System.currentTimeMillis();
         LocalDateTime now = LocalDateTime.now();

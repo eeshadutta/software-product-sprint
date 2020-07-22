@@ -22,6 +22,26 @@ async function randomQuote(idx) {
     randomQuote((idx + 1) % n);
 }
 
+function createLoginButton() {
+    fetch('/login').then(response => response.json()).then((loginInfo) => {
+        console.log(loginInfo);
+        LoginButton = document.getElementsByClassName("login-button")[0];
+        LoginButton.innerHTML = "<a href=\"" + loginInfo.url + "\">" + loginInfo.command + "</a>";
+
+        submitButton = document.getElementsByClassName("submit-button")[0];
+        loginButton2 = document.getElementsByClassName("login-comments")[0];
+
+        if (loginInfo.command == "Login") {
+            submitButton.style.display = "none";
+            loginButton2.style.display = "block";
+            loginButton2.innerHTML = "<a href=\"" + loginInfo.url + "\">" + loginInfo.command + "</a>";
+        } else {
+            submitButton.style.display = "block";
+            loginButton2.style.display = "none";
+        }
+    });
+}
+
 function getComments() {
     fetch('/data').then(response => response.json()).then((commentsReceived) => {
         commentListElement = document.getElementById("all-comments");
@@ -52,4 +72,5 @@ function createDomElement(typeOfElement, class_name, text) {
 }
 
 window.onload = randomQuote(0);
+window.onload = createLoginButton();
 window.onload = getComments();
