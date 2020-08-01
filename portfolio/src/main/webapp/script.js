@@ -6,7 +6,7 @@ function sleep(ms) {
 }
 
 async function randomQuote(idx) {
-    elem = document.getElementsByClassName("quote")[0];
+    let elem = document.getElementsByClassName("quote")[0];
     elem.innerHTML = quotes[idx];
     elem.animate([
         { opacity: 0 },
@@ -24,12 +24,11 @@ async function randomQuote(idx) {
 
 function createLoginButton() {
     fetch('/login').then(response => response.json()).then((loginInfo) => {
-        console.log(loginInfo);
-        LoginButton = document.getElementsByClassName("login-button")[0];
+        const LoginButton = document.getElementsByClassName("login-button")[0];
         LoginButton.innerHTML = "<a href=\"" + loginInfo.url + "\">" + loginInfo.command + "</a>";
 
-        submitButton = document.getElementsByClassName("submit-button")[0];
-        loginButton2 = document.getElementsByClassName("login-comments")[0];
+        const submitButton = document.getElementsByClassName("submit-button")[0];
+        const loginButton2 = document.getElementsByClassName("login-comments")[0];
 
         if (loginInfo.command == "Login") {
             submitButton.style.display = "none";
@@ -43,12 +42,12 @@ function createLoginButton() {
 }
 
 function getComments() {
-    fetch('/data').then(response => response.json()).then((commentsReceived) => {
-        commentListElement = document.getElementById("all-comments");
+    fetch('/data').then(response => response.json()).then(commentsReceived => {
+        const commentListElement = document.getElementById("all-comments");
         commentListElement.innerText = '';
 
-        comments_list = commentsReceived.comments;
-        num_comments = comments_list.length;
+        const comments_list = commentsReceived.comments;
+        const num_comments = comments_list.length;
 
         for (i = 0; i < num_comments; i++)
         {

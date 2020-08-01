@@ -39,9 +39,11 @@ import java.time.format.DateTimeFormatter;
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
 
+    static final String commentsTable = "Comment";
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
+        Query query = new Query(commentsTable).addSort("timestamp", SortDirection.DESCENDING);
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         PreparedQuery results = datastore.prepare(query);
@@ -67,29 +69,31 @@ public class DataServlet extends HttpServlet {
     }
 
     private String convertToJson(ArrayList<String> users, ArrayList<String> comments, ArrayList<String> datetimes) {
-        String json = "{";
-        json += "\"comments\": [";
+        StringBuilder str = new StringBuilder();
+        str.append("{");
+        str.append("\"comments\": [");
 
         UserService userService = UserServiceFactory.getUserService();
         if (userService.isUserLoggedIn()) {
             for (int i = 0; i < comments.size(); i++) {
-                json += "{";
-                json += "\"user\": ";
-                json += "\"" + users.get(i) + "\"";
-                json += ", ";
-                json += "\"comment\": ";
-                json += "\"" + comments.get(i) + "\"";
-                json += ", ";
-                json += "\"datetime\": ";
-                json += "\"" + datetimes.get(i) + "\"";
+                str.append("{");
+                str.append("\"user\": ");
+                str.append("\"" + users.get(i) + "\"");
+                str.append(", ");
+                str.append("\"comment\": ");
+                str.append("\"" + comments.get(i) + "\"");
+                str.append(", ");
+                str.append("\"datetime\": ");
+                str.append("\"" + datetimes.get(i) + "\"");
                 if (i == comments.size() - 1)
-                    json += "}";
+                    str.append("}");
                 else
-                    json += "}, ";
+                    str.append("}, ");
             }
         }
-
-        json += "]}";
+        str.append("]}");
+        
+        String json = str.toString();
         return json;
     }
 

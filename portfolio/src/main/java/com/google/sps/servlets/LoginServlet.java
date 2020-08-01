@@ -51,13 +51,16 @@ public class LoginServlet extends HttpServlet {
     }
 
     private String convertToJson(String command, String url) {
-        String json = "{";
-        json += "\"command\": ";
-        json += "\"" + command + "\"";
-        json += ", ";
-        json += "\"url\": ";
-        json += "\"" + url + "\"";
-        json += "}";
+        StringBuilder str = new StringBuilder();
+        str.append("{");
+        str.append("\"command\": ");
+        str.append("\"" + command + "\"");
+        str.append(", ");
+        str.append("\"url\": ");
+        str.append("\"" + url + "\"");
+        str.append("}");
+
+        String json = str.toString();
         return json;
     }
 }
