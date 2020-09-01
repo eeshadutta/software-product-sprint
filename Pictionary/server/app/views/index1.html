@@ -1,0 +1,105 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="/css/index1.css">	
+	</head>
+	
+	<body onload="create()">
+		<div class="background">
+			<div class="form-box">
+				<div class="button-box">
+					<div id="btn"></div>
+	                <button type="button" class="toggle-btn" onclick="create()">Create</button>
+	                <button type="button" class="toggle-btn" onclick="join()">Join</button>
+	            </div>	
+	            			
+		        <form id="create" class="input-group">
+		            <input type="text" class="input-field" id="admin_name" placeholder="Enter player name" required>
+		            <p class="space_30"></p>
+		            <input type="text" class="input-field" id="no_of_rounds" placeholder="Enter no of rounds" required>
+		            <p class="space_30"></p>
+		            <input type="text" class="input-field" id="time_to_guess" placeholder="Enter time to guess" required>
+		             <p class="space_30"></p>
+		            <button type="submit" class="submit-button">Create</button>
+		        </form>
+
+	            <form id="join" class="join-input-group">
+	                <input type="text" id="player_name" class="input-field" placeholder="Enter player name" required>
+	                <p class="space_30"></p>
+	                <input type="text" id="room_name" class="input-field" placeholder="Enter private code" required>
+	                <p class="space_30"></p>
+	                <button type="submit" class="submit-button">Join</button>
+	            </form>
+	        </div>
+	    </div>
+	</body>
+
+	<script>
+	    var createForm = document.getElementById("create");
+	    var joinForm = document.getElementById("join");
+	    var btn = document.getElementById("btn");
+
+	    function create() {
+	    	$("#join").hide();
+	    	$("#create").show();
+	        createForm.style.left = "50px";
+	        btn.style.left = "0px";
+	    }
+
+	    function join() {
+	    	$("#create").hide();
+	    	$("#join").show();
+	        joinForm.style.left = "50px";
+	        btn.style.left = "110px";
+	    }	
+	    	
+		$('#join').submit(function (e) {
+		    e.preventDefault();
+		    var postData = {
+		        playerName: $('#player_name').val(),
+		        roomName: $('#room_name').val(),
+		    };
+		    if (typeof (sessionStorage) != "undefined") {
+		        sessionStorage.room = JSON.stringify(postData);
+		    }
+		    $.ajax({
+		        url: "/joinRoom",
+		        type: "POST",
+		        dataType: "json",
+		        data: postData,
+		        success: function (data) {
+		            console.log(data);
+		            var url = "/game";
+		            window.location = url;
+		        },
+		        fail: function (xhr, textStatus, errorThrown) {
+		            console.log('failed');
+		        }
+		    });
+		});
+
+		$('#create').submit(function (e) {
+		    e.preventDefault();
+		    var postData = {
+		        playerName: $('#admin_name').val(),
+		        noOfRounds: $('#no_of_rounds').val(),
+		        timeToGuess: $('#time_to_guess').val()
+		    };
+
+		    $.ajax({
+		        url: "/createRoom",
+		        type: "POST",
+		        dataType: "json",
+		        data: postData,
+		        success: function (data) {
+		            if(typeof(sessionStorage) != "undefined") {
+		                sessionStorage.room = JSON.stringify(data);
+		                var myObj = JSON.parse(sessionStorage.room);
+		            }
+		            var url = "/game";
+		            window.location = url;
+		        }
+		    });
+		});
+	</script>
+</html>

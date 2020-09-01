@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.8)), url(bg.jpeg);
+    position: absolute;
+}
+
+::placeholder {
+  color: #212121a6;
+  opacity: 1;
+}
+
+.form-box {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background: linear-gradient(to right, #ece1e98f, #f7e50b);
+    padding: 5px;
+    overflow: hidden;
+}
+
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    font-size: medium;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #106dff, #06fffd);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.input-group {
+    top: 140px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+    text-align: center;
+}
+
+.join-input-group {
+    top: 160px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #212121;
+    outline: none;
+    background: transparent;
+    font-weight: bolder;
+    font-family: "Georgia", serif;
+    color: #212121;
+
+}
+
+.submit-button {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right, #106dff, #06fffd);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    margin-top: 10px;
+    font-size: medium;
+}
+
+#create {
+    left: 50px;
+}
+
+#join {
+    left: 450px;
+}
+
+.quantity {
+    display: block;
+    font-size: small;
+}
+
+.space_30 {
+    margin-top: 30px;
+}

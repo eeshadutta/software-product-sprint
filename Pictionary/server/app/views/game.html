@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+
+	<body>
+		<div id="game"></div>
+		<div id="room_code"><p></p></div>		
+		<ul class="messages" id="messages"></ul>
+			<div class="message-section">
+				<form id="message-form" class="message-form" action="">
+					<input class="message-form-input" placeholder="Chat!" id="m" autocomplete="off" />
+					<button class="message-form-button">Send</button>
+				</form>
+			</div>	
+	</body>
+
+	<script>
+		$(document).ready(function () {
+			joinRoom();
+		});
+		const socket = io.connect('http://localhost:3000');
+	    $('#message-form').submit(function (e) {
+	        e.preventDefault();
+	        var jsonUserData = JSON.parse(sessionStorage.room);
+	        var playerData = {playerName: jsonUserData.playerName, roomName: jsonUserData.roomName};
+	        var data = {message: $('#m').val(), playerData: playerData};
+	        socket.emit('message', data);
+	        $('#m').val('');
+	        return false;
+	    });
+
+		function joinRoom() {
+			if (typeof(sessionStorage) != "undefined") {
+				socket.emit('join', sessionStorage.room);
+			}
+		}
+
+		var myObj = JSON.parse(sessionStorage.room);
+		document.getElementById("room_code").getElementsByTagName("p")[0].innerHTML = myObj.roomName;		
+		
+
+
+		socket.on('joinedRoom', (message) => {
+			console.log(message);
+			$('#messages').append($('<li>').text(message));
+		});
+
+	    socket.on('message', (messageData) => {
+	        let messageJson = JSON.parse(messageData);
+	        $('#messages').append($('<li>').text(messageJson.player.playerName + ": " + messageJson.message));
+	    });
+
+
+	</script>
+</html>

@@ -1,0 +1,28 @@
+.score-board {
+    padding: 0vw;
+    margin-left: 1vw;
+    background-color: white;
+}
+
+.score-bar {
+    background-color: lightgray;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 0vh;
+    border-style: solid solid solid solid;
+    border-width: 0.4vh;
+    height: 4vh;
+}
+
+.score {
+    padding: 1vh 0.5vw 1vh 0.5vw;
+    text-align: center;
+    margin-bottom: 0vw;
+    margin-top: 0vw;
+}
+
+.players {
+    height: 92vh;
+    border-style: solid;
+    border-width: 0.4vh;
+}

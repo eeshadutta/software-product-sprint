@@ -1,0 +1,32 @@
+canvas {
+  margin-right: 1vw;
+  margin-top: 0vh;
+  margin-left: 1vw;
+  width: 47.7vw;
+  height: 85vh;
+  border-style: solid;
+  border-width: 0.4vh;
+}
+
+.canvas-tools {
+  width: 47.75vw;
+  border: 0.15vw;
+  height: 6vh;
+  border-style: solid solid solid;
+  border-width: 0.4vh;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  background-color: white;
+}
+
+.slider {
+  margin-top: 2.4vh;
+  margin-bottom: 1.6vh;
+  margin-left: 0.8vw;
+}
+
+.horizontal-list {
+  float: right;
+  margin-top: 2vh;
+  margin-right: 1vw;
+}

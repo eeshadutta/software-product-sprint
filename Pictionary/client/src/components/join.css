@@ -1,0 +1,42 @@
+.paper {
+    margin-top: 0vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6vh 3vw 6vh 3vw;
+    border-style: solid;
+    background-color: white;
+}
+
+.avatar {
+    margin: 1vw;
+}
+
+.form {
+    width: 100%;
+    margin-top: 1vh;
+}
+
+.main-title {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 7vw;
+    font-weight: bolder;
+    font-family: 'Rock Salt';
+}
+
+.back {
+    background-image: url("https://st.depositphotos.com/1670531/3809/v/950/depositphotos_38095315-stock-illustration-doodles.jpg");
+    position:fixed;
+    width:100%;
+    height:100%;
+}
+
+.intro {
+    border-style: solid;
+    background-color: #a3cdf0;
+    padding: 1vw;
+}
